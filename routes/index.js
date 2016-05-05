@@ -22,12 +22,12 @@ router.get('/timestamp/:query', function(req, res) {
   var isnum = /^\d+$/.test(query);
   if (isnum) {
   var unixDate = moment.unix(+query);
-  res.send('unix: ' + query + ', natural: ' + unixDate.format("MMMM Do, YYYY"));
+  res.json({unix: query, natural: unixDate.format("MMMM Do, YYYY")});
 }
 
 else {
   var naturalDate = moment(query, "MM-DD-YYYY");
-  res.send('natural: ' + naturalDate);
+  res.json({natural: naturalDate});
 }
 });
 
