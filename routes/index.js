@@ -12,14 +12,24 @@ router.get('/timestamp/:query', function(req, res) {
   var isnum = /^\d+$/.test(query);
   if (isnum) {
   var unixDate = moment.unix(+query);
+  if (!unixDate.isValid()) {
+    res.json({unix: null, natural: null});
+  }
+  else {
   res.json({unix: query, natural: unixDate.format("MMMM Do, YYYY")});
+}
 }
 
 else {
   var stringDate = moment(query, ['MM-DD-YYYY', 'DD-MM-YYYY', 'MMMMDDY', 'DDMMMMY']);
+  if (!stringDate.isValid()) {
+    res.json({unix: null, natural: null});
+  }
+  else {
   var naturalDate = stringDate.format('MMMM Do, YYYY');
-  unixDate = moment(stringDate).unix();
+    unixDate = moment(stringDate).unix();
   res.json({natural: naturalDate, unix: unixDate});
+}
 }
 });
 
