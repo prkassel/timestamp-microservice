@@ -1,6 +1,6 @@
 # timestamp-microservice
 
-Written for Free Code Camp's Back End Development Certification. 
+Written for Free Code Camp's Back End Development Certification.
 
 User Story: I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016).
 
