@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Timestamp Microserver</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
   <h1>Time Stamp Microservice API Project</h1>
   <p>
     This service will check if a url query string contains a valid unix timestamp or a natural language date, such as January 1st, 2021.
@@ -17,11 +18,23 @@
     <a href="timestamp/1611208800">/timestamp/1611208800</a>
   </p>
   <p>
-    <a href="timestamp/January 21st, 2021">/timestamp/January 1st, 2021</a>
+    <a href="timestamp/January%2021st%2C%202021">/timestamp/January%2021st%2C%202021</a>
   </p>
+<div class="form-group">
+  <label>    You can search for a date below by either entering a unix time stamp or a natural language date in the search box below. The service can handle numerical dates such as 01/01/2015, 01-01-2020, or February 1st, 1985.
+</label>
+    <input type="text" id="search" class="form-control" placeholder="Enter a timestamp or natural language date here">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default"><a id="link" href="">Submit</a></button>
 </div>
-<div class="container">
 <a href="https://github.com/prkassel/timestamp-microservice">Git Repo</a>
 </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+<script src="js/main.js" charset="utf-8"></script>
+
+</script>
   </body>
 </html>
