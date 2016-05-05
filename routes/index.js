@@ -7,17 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/timestamp', function(req, res) {
-    res.render('timestamp', {title: 'Time Stamp'});
-});
-
 router.get('/timestamp/:query', function(req, res) {
-  moment.updateLocale('en', {
-    months : [
-        "January", "February", "March", "April", "May", "June", "July",
-        "August", "September", "October", "November", "December"
-    ]
-});
   var query = req.params.query;
   var isnum = /^\d+$/.test(query);
   if (isnum) {
@@ -26,8 +16,10 @@ router.get('/timestamp/:query', function(req, res) {
 }
 
 else {
-  var naturalDate = moment(query, "MM-DD-YYYY");
-  res.json({natural: naturalDate});
+  var stringDate = moment(query, ['MM-DD-YYYY', 'DD-MM-YYYY', 'MMMMDDY', 'DDMMMMY']);
+  var naturalDate = stringDate.format('MMMM Do, YYYY');
+  unixDate = moment(stringDate).unix();
+  res.json({natural: naturalDate, unix: unixDate});
 }
 });
 
